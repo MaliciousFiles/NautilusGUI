@@ -29,6 +29,7 @@ public class BasicGuiPage extends GuiPage {
     public BasicGuiPage setSize(int rows) {
         this.rows = rows;
 
+        components = new GuiComponent[rows][];
         for (int i = 0; i < rows; i++) components[i] = new GuiComponent[9];
 
         return this;

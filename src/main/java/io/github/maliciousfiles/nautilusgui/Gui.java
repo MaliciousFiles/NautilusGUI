@@ -22,9 +22,11 @@ public class Gui implements Listener {
         return this;
     }
 
-    public void display(Player player) {
+    public Gui display(Player player) {
         this.player = player.getUniqueId();
         player.openInventory(root.getInventory());
+
+        return this;
     }
 
     @EventHandler
