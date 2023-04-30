@@ -18,7 +18,7 @@ public class BasicGuiPage extends GuiPage {
     private final List<GuiPage> children = new ArrayList<>();
 
     public BasicGuiPage addChild(GuiPage child) {
-        children.add(child.setParent(this));
+        children.add(child.setParent(this).setGui(gui));
         return this;
     }
 

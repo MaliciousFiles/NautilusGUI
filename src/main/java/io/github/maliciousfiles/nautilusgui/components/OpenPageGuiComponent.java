@@ -15,7 +15,7 @@ public class OpenPageGuiComponent extends ItemGuiComponent {
     @Override
     public void handleClick(InventoryClickEvent e) {
         if (e.getClickedInventory().getHolder() instanceof BasicGuiPage page) {
-            e.getWhoClicked().openInventory(page.getChild(childIdx).getInventory());
+            page.getChild(childIdx).open();
         }
     }
 }

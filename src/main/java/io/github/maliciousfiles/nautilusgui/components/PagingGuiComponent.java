@@ -18,7 +18,7 @@ public class PagingGuiComponent extends ItemGuiComponent {
             if (direction == Direction.FORWARD) page.nextPage();
             else if (direction == Direction.BACK) page.previousPage();
 
-            e.getWhoClicked().openInventory(page.getInventory());
+            page.open();
         }
     }
 

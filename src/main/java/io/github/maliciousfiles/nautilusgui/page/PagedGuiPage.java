@@ -1,5 +1,6 @@
 package io.github.maliciousfiles.nautilusgui.page;
 
+import io.github.maliciousfiles.nautilusgui.Gui;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
@@ -16,6 +17,13 @@ public class PagedGuiPage extends GuiPage {
         pages.forEach(page -> page.setParent(parent));
 
         return super.setParent(parent);
+    }
+
+    @Override
+    public GuiPage setGui(Gui gui) {
+        pages.forEach(page -> page.setGui(gui));
+
+        return super.setGui(gui);
     }
 
     public PagedGuiPage addPage(BasicGuiPage page) {
