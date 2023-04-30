@@ -1,0 +1,6 @@
+name: NautilusGUI
+version: '${project.version}'
+main: io.github.maliciousfiles.nautilusgui.NautilusGUI
+api-version: 1.19
+authors: [MaliciousFiles]
+description: A GUI API for NautilusMC
