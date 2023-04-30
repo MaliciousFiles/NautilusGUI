@@ -21,8 +21,7 @@ public class PagedGuiPage extends GuiPage {
 
     @Override
     public GuiPage setGui(Gui gui) {
-        pages.forEach(page -> page.setGui(gui));
-
+        for (GuiPage page : pages) page.setGui(gui);
         return super.setGui(gui);
     }
 

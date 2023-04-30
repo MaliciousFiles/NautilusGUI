@@ -40,10 +40,9 @@ public class Gui implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         if (e.getWhoClicked().getUniqueId() == player) {
-            e.setCancelled(true);
-
-            if (e.getView().getTopInventory() == e.getClickedInventory() && e.getClickedInventory() instanceof GuiPage page && page.getGui() == this) {
-                open.handleClick(e);
+            if (e.getView().getTopInventory().getHolder() instanceof GuiPage page && page.getGui() == this) {
+                e.setCancelled(true);
+                if (e.getView().getTopInventory() == e.getClickedInventory()) open.handleClick(e);
             }
         }
     }

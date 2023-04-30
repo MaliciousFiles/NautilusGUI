@@ -1,5 +1,6 @@
 package io.github.maliciousfiles.nautilusgui.page;
 
+import io.github.maliciousfiles.nautilusgui.Gui;
 import io.github.maliciousfiles.nautilusgui.components.FillerGuiComponent;
 import io.github.maliciousfiles.nautilusgui.components.GuiComponent;
 import net.kyori.adventure.text.Component;
@@ -20,6 +21,12 @@ public class BasicGuiPage extends GuiPage {
     public BasicGuiPage addChild(GuiPage child) {
         children.add(child.setParent(this).setGui(gui));
         return this;
+    }
+
+    @Override
+    public GuiPage setGui(Gui gui) {
+        for (GuiPage child : children) child.setGui(gui);
+        return super.setGui(gui);
     }
 
     public GuiPage getChild(int idx) {
@@ -63,6 +70,8 @@ public class BasicGuiPage extends GuiPage {
 
     @Override
     public void handleClick(InventoryClickEvent e) {
-        components[e.getSlot()/9][e.getSlot()%9].handleClick(e);
+        GuiComponent component = components[e.getSlot()/9][e.getSlot()%9];
+
+        if (component != null) component.handleClick(e);
     }
 }
