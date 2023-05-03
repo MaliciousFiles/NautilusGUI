@@ -43,7 +43,7 @@ public class TextInputGuiPage extends GuiPage {
     public TextInputGuiPage setItem(ItemStack item, net.kyori.adventure.text.Component name, net.kyori.adventure.text.Component[] lore) {
         ItemMeta meta = item.getItemMeta();
         if (name != null) meta.displayName(name);
-        meta.lore(List.of(lore));
+        if (lore.length > 0) meta.lore(List.of(lore));
         item.setItemMeta(meta);
 
         this.item = item;
@@ -110,7 +110,7 @@ public class TextInputGuiPage extends GuiPage {
         ItemMeta meta = i.getItemMeta();
         List<net.kyori.adventure.text.Component> lore = meta.lore();
         if (lore == null) lore = new ArrayList<>();
-        else lore.add(0, net.kyori.adventure.text.Component.text("\n"));
+        else lore.add(0, net.kyori.adventure.text.Component.text("\r"));
         lore.add(0, net.kyori.adventure.text.Component.text("Click to reset")
                 .decoration(TextDecoration.ITALIC, false)
                 .color(net.kyori.adventure.text.format.TextColor.color(255, 120, 118)));
