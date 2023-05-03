@@ -13,6 +13,8 @@
 
     <description>A GUI API for NautilusMC</description>
     <properties>
+        <paper-nms.goal>remap</paper-nms.goal>
+        <paper-nms.phase>process-classes</paper-nms.phase>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -50,9 +52,9 @@
                 <version>1.3.2</version>
                 <executions>
                     <execution>
-                        <phase>process-classes</phase>
+                        <phase>${paper-nms.phase}</phase>
                         <goals>
-                            <goal>remap</goal>
+                            <goal>${paper-nms.goal}</goal>
                         </goals>
                     </execution>
                 </executions>
