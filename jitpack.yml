@@ -1,3 +1,3 @@
 install:
   - mvn -Dpaper-nms.goal=init -Dpaper-nms.phase=pre-clean clean
-  - mvn install -DskipTests
+  - mvn -Dpaper-nms.goal=init -Dpaper-nms.phase=pre-clean install -DskipTests
