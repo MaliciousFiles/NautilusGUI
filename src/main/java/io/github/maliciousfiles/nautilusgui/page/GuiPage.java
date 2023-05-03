@@ -1,6 +1,7 @@
 package io.github.maliciousfiles.nautilusgui.page;
 
 import io.github.maliciousfiles.nautilusgui.Gui;
+import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.InventoryHolder;
 
@@ -10,6 +11,8 @@ public abstract class GuiPage implements InventoryHolder {
     protected Gui gui;
 
     public GuiPage() {}
+
+    public boolean load(Player player) {return false;}
 
     public void open() {
         gui.openPage(this);

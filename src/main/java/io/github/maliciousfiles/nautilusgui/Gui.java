@@ -25,7 +25,7 @@ public class Gui implements Listener {
 
     public void openPage(GuiPage page) {
         this.open = page;
-        Bukkit.getPlayer(player).openInventory(page.getInventory());
+        if (!page.load(Bukkit.getPlayer(player))) Bukkit.getPlayer(player).openInventory(page.getInventory());
     }
 
     public Gui display(Player player) {
@@ -35,6 +35,10 @@ public class Gui implements Listener {
         player.openInventory(root.getInventory());
 
         return this;
+    }
+
+    public UUID getPlayer() {
+        return player;
     }
 
     @EventHandler
