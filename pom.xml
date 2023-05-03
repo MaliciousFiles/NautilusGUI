@@ -95,8 +95,7 @@
             <groupId>ca.bkaw</groupId>
             <artifactId>paper-nms</artifactId>
             <version>1.19.4-SNAPSHOT</version>
-            <optional>true</optional>
-            <scope>provided</scope>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 </project>
