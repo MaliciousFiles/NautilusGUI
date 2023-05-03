@@ -1,5 +1,6 @@
 package io.github.maliciousfiles.nautilusgui.page;
 
+import io.github.maliciousfiles.nautilusgui.components.ItemGuiComponent;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.SimpleContainer;
@@ -30,7 +31,21 @@ public class TextInputGuiPage extends GuiPage {
     private Function<AnvilMenu, net.minecraft.world.item.ItemStack> generateResult;
     private boolean closeOnClick = false;
 
+
     public TextInputGuiPage setItem(ItemStack item) {
+        return setItem(item, null);
+    }
+
+    public TextInputGuiPage setItem(ItemStack item, net.kyori.adventure.text.Component name) {
+        return setItem(item, name, new net.kyori.adventure.text.Component[]{});
+    }
+
+    public TextInputGuiPage setItem(ItemStack item, net.kyori.adventure.text.Component name, net.kyori.adventure.text.Component[] lore) {
+        ItemMeta meta = item.getItemMeta();
+        if (name != null) meta.displayName(name);
+        meta.lore(List.of(lore));
+        item.setItemMeta(meta);
+
         this.item = item;
         return this;
     }
