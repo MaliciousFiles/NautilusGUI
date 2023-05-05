@@ -76,7 +76,7 @@ public class TextInputGuiPage extends GuiPage {
             public void createResult() {
                 if (generateResult == null) {
                     super.createResult();
-                } else {
+                } else if (this.itemName != null) {
                     this.resultSlots.setItem(0, generateResult.apply(this));
 
                     this.sendAllDataToRemote();
@@ -110,7 +110,7 @@ public class TextInputGuiPage extends GuiPage {
         ItemMeta meta = i.getItemMeta();
         List<net.kyori.adventure.text.Component> lore = meta.lore();
         if (lore == null) lore = new ArrayList<>();
-        else lore.add(0, net.kyori.adventure.text.Component.text("\r"));
+        else lore.add(0, net.kyori.adventure.text.Component.text(""));
         lore.add(0, net.kyori.adventure.text.Component.text("Click to reset")
                 .decoration(TextDecoration.ITALIC, false)
                 .color(net.kyori.adventure.text.format.TextColor.color(255, 120, 118)));
